@@ -8,6 +8,7 @@ class Triangle
   end
 
   def kind
+    validate
     if a == b && b == c
       :equilateral
     elsif a == b || b ==c ||a == c
@@ -18,7 +19,7 @@ class Triangle
   end
 
   def sides_greater_than_zero?
-    [a,b,c].all?(&positive?)
+    [a,b,c].all?(& :positive?)
   end
 
   def triangle_inequality?
